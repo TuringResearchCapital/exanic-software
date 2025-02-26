@@ -36,6 +36,7 @@
 #endif /* ifdef TCP_LISTEN_SOCKET_PROFILING */
 
 extern struct exa_hashtable __exa_tcp_sockfds;
+extern struct exa_tcp_state* exasock_get_tcp_state(int fd);
 
 struct exa_tcp_conn
 {

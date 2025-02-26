@@ -23,6 +23,16 @@
 
 struct exa_hashtable __exa_tcp_sockfds;
 
+struct exa_tcp_state* exasock_get_tcp_state(int fd) {
+    // Look up the socket based on its file descriptor.
+    struct exa_socket *sock = exa_socket_get(fd);
+    if (sock == NULL) {
+        return NULL;
+    }
+    // Return a pointer to the TCP state inside the socket's state.
+    return &sock->state->p.tcp;
+}
+
 __attribute__((constructor))
 void
 __exa_tcp_init(void)
