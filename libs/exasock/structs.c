@@ -39,7 +39,7 @@ __exasock_structs_init()
     }
 
     exa_socket_table_size = rlim.rlim_max;
-    exa_socket_table = calloc(exa_socket_table_size, sizeof(struct exa_socket));
+    exa_socket_table = (exa_socket*)calloc(exa_socket_table_size, sizeof(struct exa_socket));
 
     if (exa_socket_table == NULL)
     {
